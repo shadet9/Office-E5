@@ -5,7 +5,7 @@ name: Office E5
 
 on:
   schedule:
-    - cron: '30 5 * * 1,3'
+    - cron: '0 12 * * *'
   release:
     types: [published]
   watch:
@@ -14,7 +14,6 @@ on:
 jobs: 
   Call-APi:
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id || github.event_name == 'schedule' # 自己star启动或者schedule触发
     steps:
     - name: Setup timezone
       uses: zcong1993/setup-timezone@v1.1.1
